@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+
+/* Global Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+    line-height: 1;
+}
+
+/* Variables */
+:root {
+    --fw-medium: 500;
+    --fw-bold: 700;
+    --ff-montserrat: "Montserrat", sans-serif;
+    --ff-fraunces: "Fraunces", serif;
+    --dark-cyan: hsl(158, 36%, 37%);
+    --cream: hsl(30, 38%, 92%);
+    --very-dark-blue: hsl(212, 21%, 14%);
+    --dark-grayish-blue: hsl(228, 12%, 48%);
+    --white: hsl(0, 0%, 100%);
+}
+
+/* Base Styles */
+body {
+    font-family: var(--ff-montserrat);
+    color: var(--very-dark-blue);
+    font-size: 0.875rem;
+    font-weight: var(--fw-medium);
+    background-color: var(--cream);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+    margin: 0;
+    position: relative;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Card Styles */
+.card {
+    background-color: var(--white);
+    width: 90%;
+    display: grid;
+    line-height: 1.5;
+    border-radius: 0.5rem;
+    margin: auto;
+    overflow: hidden;
+    grid-template-columns: 1fr;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.text-container {
+    padding: 1.4rem;
+    display: grid;
+    gap: 1rem;
+}
+
+h2 {
+    color: var(--dark-grayish-blue);
+    letter-spacing: 0.3rem;
+    font-size: clamp(0.7rem,1vw,1rem);
+    font-weight: var(--fw-medium);
+    padding-bottom: 0.6rem;
+}
+
+.title {
+    font-family: var(--ff-fraunces);
+    font-weight: var(--fw-bold);
+    font-size: clamp(2rem, 3vw, 3vw);
+    padding-bottom: 0.6rem;
+}
+
+.description {
+    color: var(--dark-grayish-blue);
+    font-weight: var(--fw-medium);
+    padding-bottom: 1rem;
+}
+
+/* Price Section */
+.price {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+}
+
+.new-price {
+    color: var(--dark-cyan);
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: var(--fw-bold);
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: var(--dark-grayish-blue);
+}
+
+/* Button */
+button {
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75em 1.5em;
+    border: 0;
+    border-radius: 0.5rem;
+    background-color: var(--dark-cyan);
+    color: var(--white);
+    font-weight: var (--fw-bold);
+    font-size: 0.925rem;
+}
+
+button:is(:hover, :focus) {
+    background-color: hsl(158, 36%, 15%);
+}
+
+button[data-icon="shopping-cart"]::before {
+    content: "";
+    background-image: url(images/icon-cart.svg);
+    width: 15px;
+    height: 16px;
+}
+
+/* Attribution */
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--cream);
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+/* Media Queries */
+@media (min-width: 48em) {
+    .card {
+        grid-template-columns: 1fr 1fr; /* Divide la card en dos columnas iguales */
+        width: 70vw; /* Ajusta el ancho total para pantallas grandes */
+        max-width: none; /* Elimina la restricción de 600px */
+    }
+
+    picture,
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .text-container {
+    padding: 2rem;
+    }
+}
+
+@media (min-width: 85em) {
+    .text-container {
+    padding: 3rem 4rem;
+    }   
+    .card {
+        width: 50vw;
+    }
+}
