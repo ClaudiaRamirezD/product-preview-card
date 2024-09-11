@@ -64,6 +64,8 @@ img, picture, video, canvas, svg {
     border-radius: 0.5rem;
     margin: auto;
     overflow: hidden;
+    max-height: 90vh;
+    height: auto;
     grid-template-columns: 1fr;
 }
 
@@ -163,14 +165,15 @@ button[data-icon="shopping-cart"]::before {
 /* Media Queries */
 @media (min-width: 48em) {
     .card {
-        grid-template-columns: 1fr 1fr; /* Divide la card en dos columnas iguales */
-        width: 70vw; /* Ajusta el ancho total para pantallas grandes */
-        max-width: none; /* Elimina la restricción de 600px */
+        grid-template-columns: 1fr 1fr; 
+        width: 70vw; 
+        max-width: none; 
+        max-height: 60vh;
     }
 
     picture,
     img {
-        width: 100%;
+        object-fit: cover;
         height: 100%;
     }
 
